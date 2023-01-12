@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # 생성한 앱
     'users',
+    'accounts',
 ]
 
 AUTH_USER_MODEL = 'users.User' # Django에서 커스텀 유저 사용
@@ -59,6 +60,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication', # JWT 인증 방식 사용
     ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', # PageNumberPagination으로 페이징 처리
+    'PAGE_SIZE': 30, # 한 페이지에 30개 표시
 }
 
 REST_USE_JWT = True # JWT 사용
